@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopwatch</title>
+    <link rel="stylesheet" href="stopwatch.css">
+        
+
+</head>
+<body>
+    <h1>Stop Watch</h1>
+    <div class="container">
+        
+            <div class="box box1"> 0 </div><span>:</span>
+        <div class="box box2"> 0 </div><span>:</span>
+        <div class="box box3"> 0</div>
+       
+    </div>
+    <div class="btncontainer">
+        <button class="btn btn1">Start</button>
+        <button class="btn btn2">Stop</button>
+        <button class="btn btn3">Reset</button>
+    </div>
+    
+
+
+
+    <script>
+        let start = document.querySelector(".btn1")
+        let stop = document.querySelector(".btn2");
+        let reset = document.querySelector(".btn3")
+        stop.addEventListener("click", function(){
+            clearInterval(intervalId);
+        })
+        reset.addEventListener("click",function(){
+            box1.innerHTML = 0;
+            box2.innerHTMLv= 0;
+            box3.innerHTML = 0;
+            clearInterval(intervalId);
+        })
+        start.addEventListener("click",function(){
+            location.reload();
+        })
+        let box1 = document.querySelector(".box1");
+        let box2 = document.querySelector(".box2")
+        let box3 = document.querySelector(".box3");
+        let btn1 = document.querySelector(".btn1");
+        let [second, minute, hour] = [0,0,0]
+        function stopwatch(){
+            second++;
+            if(second == 60){
+                second = 0;
+                minute++;
+                if(minute == 60){
+                    minute = 0;
+                    hour++;
+                  
+                }
+            } 
+            box1.innerHTML = hour;
+            box2.innerHTML = minute;
+            box3.innerHTML = second;
+            
+        }
+        btn1.addEventListener('click', stopwatch)
+        // stopwatch();
+      const intervalId =   setInterval(stopwatch,1000);
+       
+    </script>
+</body>
+</html>
