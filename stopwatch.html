@@ -21,6 +21,7 @@
         <button class="btn btn1">Start</button>
         <button class="btn btn2">Stop</button>
         <button class="btn btn3">Reset</button>
+        <button class="btn btn4">Resume</button>
     </div>
     
 
@@ -30,6 +31,7 @@
         let start = document.querySelector(".btn1")
         let stop = document.querySelector(".btn2");
         let reset = document.querySelector(".btn3")
+        let resume = document.querySelector(".btn4");
         stop.addEventListener("click", function(){
             clearInterval(intervalId);
         })
@@ -39,7 +41,11 @@
             box3.innerHTML = 0;
             clearInterval(intervalId);
         })
-        start.addEventListener("click",function(){
+        resume.addEventListener("click",function(){
+            const intervalId =   setInterval(stopwatch,1000);
+       
+        })
+        start.addEventListener("click", function(){
             location.reload();
         })
         let box1 = document.querySelector(".box1");

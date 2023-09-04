@@ -1,0 +1,1 @@
+# This is the project in which i make a stop watch as a beginner with the help of html css and js
